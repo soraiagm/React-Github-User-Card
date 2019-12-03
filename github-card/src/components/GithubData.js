@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import UserCard from './UserCard.js';
+import FollowersCard from './FollowersCard.js';
 
 class GithubData extends React.Component {
     state = {
-        user: {}
+        user: {},
+        followers: []
     };
 
     componentDidMount(){
@@ -17,12 +19,26 @@ class GithubData extends React.Component {
             .catch(error => {
                 console.log(error);
             })
+        
+        axios
+            .get('https://api.github.com/users/soraiagm/followers')
+            .then(response => {
+                console.log(response);
+                this.setState({ followers: response.data});
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     render(){
         return(
             <div>
-                <UserCard user={this.state.user}/>
+                <UserCard user={this.state.user} />
+                {this.state.followers.map(follower => (
+                <FollowersCard key={follower.id} follower={follower}/>
+                ))}
+                
             </div>
         )
     }
