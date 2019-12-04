@@ -6,7 +6,8 @@ import FollowersCard from './FollowersCard.js';
 class GithubData extends React.Component {
     state = {
         user: {},
-        followers: []
+        followers: [],
+        // followersArray: ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell']
     };
 
     componentDidMount(){
@@ -29,6 +30,19 @@ class GithubData extends React.Component {
             .catch(error => {
                 console.log(error);
             })
+
+
+        // this.state.followersArray.forEach(follower => {
+        //     axios
+        //         .get(`https://api.github.com/users/${follower}`)
+        //         .then(response => {
+        //             console.log(response);
+        //             this.setState({ followersArray: response.data })
+        //         })
+        //         .catch(error => {
+        //             console.log(error);
+        //         })
+        // })
     }
 
     render(){
@@ -36,9 +50,7 @@ class GithubData extends React.Component {
             <div className="github-data">
                 <UserCard user={this.state.user} />
                 {this.state.followers.map(follower => (
-                <FollowersCard key={follower.id} follower={follower}/>
-                ))}
-                
+                <FollowersCard key={follower.id} follower={follower}/>))}
             </div>
         )
     }

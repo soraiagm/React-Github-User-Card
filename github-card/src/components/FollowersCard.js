@@ -5,9 +5,9 @@ export default function FollowersCard(props) {
         <div className="card" key={props.follower.id}>
             <img width="460" height="460" src={props.follower.avatar_url} alt="profile" /> 
                 <div className="card-info">
-                    <p className="username">{props.follower.login}</p>
+                    <h2 className="username">Username: {props.follower.login}</h2>
                     <p className="profile">Profile:
-                        <a href={props.follower.html_url}>"https://github.com"</a>
+                        <a href= {props.follower.html_url}> {props.follower.html_url}</a>
                     </p>
             </div> 
         </div>
