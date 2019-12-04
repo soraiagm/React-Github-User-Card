@@ -33,7 +33,7 @@ class GithubData extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="github-data">
                 <UserCard user={this.state.user} />
                 {this.state.followers.map(follower => (
                 <FollowersCard key={follower.id} follower={follower}/>

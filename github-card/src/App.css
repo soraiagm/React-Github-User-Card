@@ -20,3 +20,20 @@
 .App-link {
   color: #09d3ac;
 }
+
+.card {
+  margin: 50px;
+  width: 700px;
+  height: 700px
+}
+
+.github-data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: lightblue;
+}
+
+img {
+  border-radius: 10px;
+}
